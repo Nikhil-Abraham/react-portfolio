@@ -21,7 +21,7 @@ const Navbar = () => {
           href="#"
           className="text-slate-700 font-normal text-xl mx-2 transition duration-300 hover:shadow-2xl"
         >
-          Education
+          Projects
         </a>
       </div>
     </nav>

@@ -4,7 +4,7 @@ import HeroSection from "./components/HeroSection";
 
 function App() {
   return (
-    <main>
+    <main className="bg-brown-500">
       <Navbar />
       <HeroSection />
     </main>
