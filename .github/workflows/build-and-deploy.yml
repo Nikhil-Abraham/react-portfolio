@@ -2,7 +2,7 @@ name: Build and Deploy React App to AWS
 on:
   push:
     branches: [master]
-jobs: 
+jobs:
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
@@ -12,27 +12,25 @@ jobs:
       REGION: ap-south-1
       DIST_ID: E3DQ4BLIAYKUF2
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.REGION }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
 
-    - name: Install Dependencies
-      run: |
-        node --version
-        npm ci -production
-    
-    - name: Build Static Website
-      run: npm run build
-    
-    - name: Copy files to production website with AWS CLI
-      run: aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET }}
+      - name: Install Dependencies
+        run: |
+          node --version
+          npm ci -production
 
-    - name: Invalidate CloudFront Cache
-      run: aws cloudfront create-invalidation 
-      --distribution-id ${{ env.DIST_ID }} 
-      --paths "/*"
+      - name: Build Static Website
+        run: npm run build
+
+      - name: Copy files to production website with AWS CLI
+        run: aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET }}
+
+      - name: Invalidate CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.DIST_ID }} --paths "/*"
