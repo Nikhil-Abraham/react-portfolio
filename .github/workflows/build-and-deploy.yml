@@ -30,7 +30,7 @@ jobs:
           npm ci -production
 
       - name: Build Static Website
-        run: npm run build
+        run: CI=false npm run build
 
       - name: Copy files to production website with AWS CLI
         run: aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET }}
