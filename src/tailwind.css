@@ -1,0 +1,36 @@
+/* src/tailwind.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  background-color: rgb(241 245 249);
+}
+
+@font-face {
+  font-family: "Colus-Regular";
+  src: url("/src/assets/fonts/Colus-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Peristiwa";
+  src: url("/src/assets/fonts/Peristiwa.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Maulline";
+  src: url("/src/assets/fonts/Mauline.otf") format("opentype");
+}
+
+/* Apply the custom font to specific elements */
+.colus-regular {
+  font-family: "Colus-Regular", sans-serif;
+}
+
+.peristiwa {
+  font-family: "Peristiwa";
+}
+
+.maulline {
+  font-family: "Maulline";
+}
