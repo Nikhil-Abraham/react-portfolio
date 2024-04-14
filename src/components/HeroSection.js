@@ -33,14 +33,14 @@ const HeroSection = () => {
           <FaGithub className="w-8 h-8 mx-2 text-gray-600 hover:text-orange-600" />
         </a>
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://linkedin.com/in/nikhil-m-abraham/"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaLinkedin className="w-8 h-8 mx-2 text-gray-600 hover:text-orange-600" />
         </a>
         <a
-          href="https://twitter.com/yourusername"
+          href="https://twitter.com/Nikhil_Abraham_"
           target="_blank"
           rel="noopener noreferrer"
         >
